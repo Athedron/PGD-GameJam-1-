@@ -29,7 +29,7 @@ public class HEALTHBAR : MonoBehaviour {
         render2.color = new Color(255,0,0);
 
         obj.transform.position = new Vector3(0, -2, -2);
-        obj2.transform.position = new Vector3(0, -2, -2);
+        obj2.transform.position = new Vector3(0, -2, -3);
     }
 	
 	// Update is called once per frame

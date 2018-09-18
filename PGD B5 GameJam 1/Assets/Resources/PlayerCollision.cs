@@ -25,10 +25,12 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             damage += 1f;
-        }
+			Debug.Log("1");
+		}
         if (collision.gameObject.tag == "EnemyCore")
         {
             damage += 2f;
+			Debug.Log("2");
         }
     }
 }
