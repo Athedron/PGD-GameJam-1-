@@ -21,7 +21,7 @@ public class HEALTHBAR : MonoBehaviour {
         obj = new GameObject("emptyBar");
         SpriteRenderer render = obj.AddComponent(typeof(SpriteRenderer)) as SpriteRenderer;
         render.sprite = pixel;
-        obj.transform.localScale = new Vector3(playerInfo.health, barSize, 1);
+        obj.transform.localScale = new Vector3(200, barSize, 1);
 
         obj2 = new GameObject("fillBar");
         SpriteRenderer render2 = obj2.AddComponent(typeof(SpriteRenderer)) as SpriteRenderer;
@@ -34,7 +34,12 @@ public class HEALTHBAR : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(playerInfo.health >= playerInfo.damage)
-            obj2.transform.localScale = new Vector3(playerInfo.health - playerInfo.damage, barSize, 1);
+		if (playerInfo.health <= playerInfo.Maxhealth)
+		{
+			obj2.transform.localScale = new Vector3(playerInfo.Maxhealth - playerInfo.health, barSize, 1);
+			Debug.Log(playerInfo.health);
+		}
+		
+
     }
 }

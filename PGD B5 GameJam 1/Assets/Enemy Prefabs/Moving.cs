@@ -8,12 +8,12 @@ public class Moving : MonoBehaviour {
 	public float enemySpeed;
 	public int toTarget;
 	public Transform target;
-
+	public bool isHit;
 
 	// Use this for initialization
 	void Start()
 	{
-		enemySpeed = Random.value + 0.1f;
+		enemySpeed = Random.value + 6f;
 		target = GameObject.Find("Player").transform;
 	}
 
@@ -25,7 +25,7 @@ public class Moving : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		Vector2 toTarget = target.transform.position - transform.position;
+		Vector2 toTarget = (target.transform.position - transform.position).normalized;
 		
 
 		transform.Translate(toTarget * enemySpeed * Time.deltaTime);
@@ -35,11 +35,20 @@ public class Moving : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == "Bullet")
+		if (collision.gameObject.tag == "Bullet" && !isHit)
 		{
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			isHit = true;
+			target = GameObject.Find("Base").transform;
+			enemySpeed = 0.5f;
+			GetComponent<SpriteRenderer>().color = Color.green;
 			Destroy(collision.gameObject);
 		}
-
+		if (collision.gameObject.tag == "Cannon")
+		{
+			target = GameObject.Find("Base").transform;
+			enemySpeed = 01f;
+			GetComponent<SpriteRenderer>().color = Color.green;
+		}
 	}
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 
-    public float damage = 0, health = 500;
+    public float  Maxhealth = 200 , health = 200;
     public GameObject camera;
 
     // Use this for initialization
     void Start()
     {
-
+		health = Maxhealth;
     }
 
     // Update is called once per frame
@@ -20,16 +20,16 @@ public class PlayerCollision : MonoBehaviour
         camera.transform.position = transform.position - new Vector3(-1080/2/108, 0, 10);
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            damage += 1f;
+            health -= 10f;
 			Debug.Log("1");
 		}
         if (collision.gameObject.tag == "EnemyCore")
         {
-            damage += 2f;
+            health -= 20f;
 			Debug.Log("2");
         }
     }
