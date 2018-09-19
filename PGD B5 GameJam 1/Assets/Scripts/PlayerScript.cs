@@ -3,17 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonBehaviour : MonoBehaviour {
+public class PlayerScript : MonoBehaviour {
 
 	public GameObject hotDogPrefab;
-	public Transform hotDogSpawn;
 	public int bulletCount = 0;
 	
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,16 +29,12 @@ public class CannonBehaviour : MonoBehaviour {
 
 	public void Shoot() {
 
-		var hotDog = (GameObject)Instantiate(hotDogPrefab, hotDogSpawn.position, hotDogSpawn.rotation);
+		var hotDog = (GameObject)Instantiate(hotDogPrefab, transform.position, transform.rotation);
 
-		Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - hotDogSpawn.position).normalized;
+		Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
 		hotDog.GetComponent<Rigidbody2D>().velocity = direction.normalized * 10;
 		Destroy(hotDog, 5f);
-
 		hotDog.transform.SetParent(transform);
-		
-
 	}
-	
 }
 

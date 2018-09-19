@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212296097142555110}
   - component: {fileID: 114768868945859460}
   - component: {fileID: 50119457852357674}
-  - component: {fileID: 61805771915653556}
+  - component: {fileID: 58966924342871326}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: EnemyCore
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 212277177716626528}
   - component: {fileID: 58553949857957206}
   m_Layer: 0
-  m_Name: Enemy_radius
+  m_Name: Enemy_radius_sprite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 1379842434644628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: -0.52}
+  m_LocalScale: {x: 5, y: 5, z: 0}
   m_Children: []
   m_Father: {fileID: 4980331244867200}
   m_RootOrder: 0
@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202899271704860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.986978, y: -1.5709682, z: -0.27}
-  m_LocalScale: {x: 3, y: 3, z: 0}
+  m_LocalPosition: {x: -5.18, y: -1.5709682, z: -0.27}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_Children:
   - {fileID: 4653160582695784}
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1379842434644628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -109,8 +109,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!61 &61805771915653556
-BoxCollider2D:
+--- !u!58 &58966924342871326
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -118,22 +118,12 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
-  m_EdgeRadius: 0
+  m_Radius: 0.43282583
 --- !u!114 &114768868945859460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f0dee839b11ad478315b473bd2f1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 2
-  toTarget: 2
+  enemySpeed: 0.2
   target: {fileID: 0}
   isHit: 0
+  alreadyHitPlayer: 0
 --- !u!212 &212277177716626528
 SpriteRenderer:
   m_ObjectHideFlags: 1
