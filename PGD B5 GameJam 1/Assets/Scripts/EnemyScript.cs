@@ -12,8 +12,13 @@ public class EnemyScript : MonoBehaviour {
     private GameObject enemyBase, gameMaster;
     private Vector2 basePos;
 
+    private Vector3 zPosFix;
 	void Start()
 	{
+        zPosFix = transform.position;
+        zPosFix.z = 0;
+        transform.position = zPosFix;
+
         gameMaster = GameObject.Find("GameMaster");
 
 		enemySpeed = Random.value + 6f;
@@ -39,16 +44,17 @@ public class EnemyScript : MonoBehaviour {
 			target = GameObject.Find("Base").transform;
             EnemyIsHit();
             Destroy(collision.gameObject);
-            gameMaster.GetComponent<GameMasterScript>().damage--;
+            gameMaster.GetComponent<GameMasterScript>().stress--;
             gameMaster.GetComponent<GameMasterScript>().score ++;
+            gameMaster.GetComponent<GameMasterScript>().UpdateScore();
             CancelInvoke();
         }
 
         if(collision.gameObject.name == "Player" && !alreadyHitPlayer)
         {
             alreadyHitPlayer = true;
-            gameMaster.GetComponent<GameMasterScript>().damage++;
-            InvokeRepeating("InflictDamage", 0f, 1f);
+            gameMaster.GetComponent<GameMasterScript>().stress++;
+            InvokeRepeating("InflictStress", 0f, 1f);
         }
 
         if(collision.gameObject.name == "Base")
@@ -57,9 +63,9 @@ public class EnemyScript : MonoBehaviour {
         }
     }
 
-    void InflictDamage()
+    void InflictStress()
     {
-        gameMaster.GetComponent<GameMasterScript>().TakeDamage();
+        gameMaster.GetComponent<GameMasterScript>().TakeStress();
     }
 
     void EnemyIsHit()
