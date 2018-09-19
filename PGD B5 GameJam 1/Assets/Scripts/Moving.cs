@@ -10,37 +10,41 @@ public class Moving : MonoBehaviour {
 	public Transform target;
 	public bool isHit;
 
+    private GameObject enemyBase;
+    private Vector2 basePos;
 	// Use this for initialization
 	void Start()
 	{
 		enemySpeed = Random.value + 6f;
 		target = GameObject.Find("Player").transform;
+
+        enemyBase = GameObject.Find("Base");
+        basePos = enemyBase.transform.position;
 	}
 
 
 	// Update is called once per frame
 	void Update () {
 
-		
-	}
+
+        
+    }
 	void FixedUpdate()
 	{
 		Vector2 toTarget = (target.transform.position - transform.position).normalized;
-		
-
 		transform.Translate(toTarget * enemySpeed * Time.deltaTime);
 
-		
-	}
+        if(isHit) if ((Vector2)transform.position == basePos) Destroy(this.gameObject);
+    }
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Bullet" && !isHit)
 		{
-			//Destroy(gameObject);
+            print("enemy collision met bullet");
 			isHit = true;
 			target = GameObject.Find("Base").transform;
-			enemySpeed = 0.5f;
+			enemySpeed = 10f;
 			GetComponent<SpriteRenderer>().color = Color.green;
 			Destroy(collision.gameObject);
 		}

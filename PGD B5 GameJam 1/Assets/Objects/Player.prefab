@@ -20,9 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4332747526570330}
   - component: {fileID: 212614360269420538}
-  - component: {fileID: 114704496597623488}
-  - component: {fileID: 114472755481473726}
-  - component: {fileID: 114404740783529146}
   - component: {fileID: 58306545495827476}
   - component: {fileID: 50620648524328128}
   m_Layer: 0
@@ -80,47 +77,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &114404740783529146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1987565784576468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a4e319264d806046b90b0ad40e8ee77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  health: 500
-  camera: {fileID: 0}
---- !u!114 &114472755481473726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1987565784576468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb3d538de628b34b9dbc6196a764de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1987565784576468}
---- !u!114 &114704496597623488
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1987565784576468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 515edddf974ccd540b4bfd86ed73282f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hotDogPrefab: {fileID: 1695744482046392, guid: 618874dabf7e41e478f57058c8e581d5,
-    type: 2}
-  hotDogSpawn: {fileID: 4332747526570330}
-  enemy: {fileID: 4980331244867200, guid: 79b05b3bf59e909409c34df7ae18579f, type: 2}
 --- !u!212 &212614360269420538
 SpriteRenderer:
   m_ObjectHideFlags: 1
