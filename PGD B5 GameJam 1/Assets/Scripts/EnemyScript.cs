@@ -48,11 +48,11 @@ public class EnemyScript : MonoBehaviour {
             gameMaster.GetComponent<GameMasterScript>().score ++;
             gameMaster.GetComponent<GameMasterScript>().UpdateScore();
             CancelInvoke();
+            alreadyHitPlayer = true;
         }
 
         if(collision.gameObject.name == "Player" && !alreadyHitPlayer)
         {
-            alreadyHitPlayer = true;
             gameMaster.GetComponent<GameMasterScript>().stress++;
             InvokeRepeating("InflictStress", 0f, 1f);
         }

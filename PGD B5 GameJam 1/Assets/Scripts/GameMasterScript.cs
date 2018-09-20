@@ -26,6 +26,7 @@ public class GameMasterScript : MonoBehaviour {
     }
     public void TakeStress()
     {
+        if (stress < 0) stress = 0;
         if (rt.sizeDelta.x < 200) rt.sizeDelta += new Vector2(stress, 0);
         else
         {
